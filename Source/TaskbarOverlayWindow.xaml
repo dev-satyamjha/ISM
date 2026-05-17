@@ -1,0 +1,77 @@
+<Window x:Class="NetMonitor.TaskbarOverlayWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="ISM+ Taskbar" Width="90" Height="40" MinWidth="50" MinHeight="25"
+        WindowStyle="None" AllowsTransparency="True" Background="Transparent"
+        Topmost="True" ShowInTaskbar="False" ResizeMode="NoResize"
+        Opacity="{Binding TaskbarOpacity}">
+    <Grid>
+        <!-- Background matches user settings -->
+        <Border Background="{Binding TaskbarBackgroundColorBrush}" CornerRadius="4" Margin="0" VerticalAlignment="Stretch" HorizontalAlignment="Stretch">
+            <Border.RenderTransform>
+                <ScaleTransform ScaleX="{Binding TaskbarScale}" ScaleY="{Binding TaskbarScale}" CenterX="45" CenterY="20"/>
+            </Border.RenderTransform>
+
+            <Grid>
+                <!-- Main Grid -->
+                <Grid x:Name="MainGrid" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5,0">
+                    <Grid.Style>
+                        <Style TargetType="Grid">
+                            <Setter Property="Visibility" Value="Visible"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsTaskbarFlipped}" Value="True">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Grid.Style>
+                    <StackPanel Orientation="Vertical" HorizontalAlignment="Left" VerticalAlignment="Center" Background="Transparent" MouseLeftButtonDown="Content_MouseLeftButtonDown" MouseLeftButtonUp="Content_MouseLeftButtonUp" MouseMove="Content_MouseMove">
+                        <StackPanel Orientation="Horizontal" Margin="0,1">
+                            <Path Data="M 0 8 L 5 0 L 10 8 Z" Fill="{Binding TaskbarUploadColorBrush}" Width="10" Height="8" Stretch="Fill" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                            <TextBlock Text="{Binding CurrentUploadSpeed}" Foreground="{Binding TaskbarUploadColorBrush}" FontSize="13" FontWeight="Bold" FontFamily="Consolas" VerticalAlignment="Center"/>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal" Margin="0,1">
+                            <Path Data="M 0 0 L 5 8 L 10 0 Z" Fill="{Binding TaskbarDownloadColorBrush}" Width="10" Height="8" Stretch="Fill" VerticalAlignment="Center" Margin="0,0,5,0"/>
+                            <TextBlock Text="{Binding CurrentDownloadSpeed}" Foreground="{Binding TaskbarDownloadColorBrush}" FontSize="13" FontWeight="Bold" FontFamily="Consolas" VerticalAlignment="Center"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+                <!-- Flipped Grid -->
+                <Grid x:Name="FlippedGrid" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="5,0" Background="Transparent" MouseLeftButtonDown="Content_MouseLeftButtonDown" MouseLeftButtonUp="Content_MouseLeftButtonUp" MouseMove="Content_MouseMove">
+                    <Grid.Style>
+                        <Style TargetType="Grid">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding IsTaskbarFlipped}" Value="True">
+                                    <Setter Property="Visibility" Value="Visible"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Grid.Style>
+                    <TextBlock Text="{Binding WidgetFlippedText}" Foreground="#00BFFF" FontSize="13" FontWeight="Bold" FontFamily="Consolas" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                </Grid>
+            </Grid>
+        </Border>
+
+        <Thumb x:Name="LeftResize" Width="6" HorizontalAlignment="Left" Cursor="SizeWE" DragDelta="Resize_DragDelta">
+            <Thumb.Template>
+                <ControlTemplate TargetType="Thumb"><Border Background="Transparent"/></ControlTemplate>
+            </Thumb.Template>
+        </Thumb>
+        <Thumb x:Name="RightResize" Width="6" HorizontalAlignment="Right" Cursor="SizeWE" DragDelta="Resize_DragDelta">
+            <Thumb.Template>
+                <ControlTemplate TargetType="Thumb"><Border Background="Transparent"/></ControlTemplate>
+            </Thumb.Template>
+        </Thumb>
+        <Thumb x:Name="TopResize" Height="6" VerticalAlignment="Top" Cursor="SizeNS" DragDelta="Resize_DragDelta">
+            <Thumb.Template>
+                <ControlTemplate TargetType="Thumb"><Border Background="Transparent"/></ControlTemplate>
+            </Thumb.Template>
+        </Thumb>
+        <Thumb x:Name="BottomResize" Height="6" VerticalAlignment="Bottom" Cursor="SizeNS" DragDelta="Resize_DragDelta">
+            <Thumb.Template>
+                <ControlTemplate TargetType="Thumb"><Border Background="Transparent"/></ControlTemplate>
+            </Thumb.Template>
+        </Thumb>
+    </Grid>
+</Window>
