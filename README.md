@@ -73,7 +73,7 @@ This repository contains the **Free (open-source)** edition. A [**Pro edition**]
 2. Run the installer — it handles everything automatically.
 
 ### Option 3 — Microsoft Store
-*Free version Store link coming soon!*
+[![Microsoft Store](https://img.shields.io/badge/Microsoft%20Store-ISM%2B%20-green?logo=microsoftstore)](https://apps.microsoft.com/detail/9nqk8n6m1qz5)
 
 ---
 
