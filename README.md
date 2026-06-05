@@ -2,9 +2,9 @@
 
 <img src="Assets/ISM+.png" alt="ISM+ Logo" width="100"/>
 
-# ⚡ ISM+ — Internet Speed Meter Plus
+# ⚡ ISM+: Internet Speed Meter Plus
 
-**Know the Limits. Free, Native, & Open Source.**
+**Know the Limits. Free, Native, and Open Source.**
 
 [![Platform](https://img.shields.io/badge/Platform-Windows%2010%2F11-0078D7?logo=windows)](https://github.com)
 [![License](https://img.shields.io/badge/License-MIT-green)](LICENSE)
@@ -17,13 +17,13 @@
 
 ## 📖 Overview
 
-**ISM+** is a lightweight, strictly native, and always-on network speed monitor designed entirely for Windows 10 and 11. It lives elegantly in your system tray, providing a real-time, zero-latency view of your download/upload speeds, daily data usage, and historical stats—all in one clean dashboard.
+**ISM+** is a lightweight, strictly native, and persistent network throughput monitor built for Windows 10 and 11. It runs as a system tray application, providing a real-time, low-overhead view of download and upload speeds, daily data consumption, and historical statistics, all surfaced through a single, clean dashboard.
 
-**A First of Its Kind:** Currently, the landscape for Windows network monitors is broken. Existing products are either completely non-functional, aggressively monetized behind expensive paywalls, or closed-source with questionable background processes. **ISM+ is different.** It bridges the gap by offering a fully functional, highly optimized, and beautifully designed native solution that respects your system resources.
+**Filling a Gap in the Ecosystem:** The existing landscape of Windows network monitors is largely inadequate. Available tools are either non-functional, locked behind aggressive paywalls, or closed-source with opaque background processes. **ISM+** addresses this by delivering a fully functional, performance-optimized, and natively designed solution that operates with minimal system resource overhead.
 
-**Privacy First:** Your data is your own. ISM+ is strictly privacy-focused—it operates entirely offline, does not track you, and will never steal, harvest, or sell your telemetry data.
+**Privacy by Design:** ISM+ is built with a strict offline-only architecture. It makes no outbound network calls, collects no telemetry, and does not transmit or store any user data to external systems.
 
-This repository contains the **Free (open-source)** edition. A [**Pro edition**](https://apps.microsoft.com/detail/9ncl3jrpkhtw) is available on the Microsoft Store for users who want to push their telemetry tracking even further.
+This repository contains the **Free (open-source)** edition. A [**Pro edition**](https://apps.microsoft.com/detail/9ncl3jrpkhtw) is available on the Microsoft Store for users requiring extended telemetry and monitoring capabilities.
 
 ---
 
@@ -64,24 +64,24 @@ This repository contains the **Free (open-source)** edition. A [**Pro edition**]
 
 ## 🚀 Installation
 
-### Option 1 — Portable (No Install)
-1. Download `ISM+.exe` from the Releases Section.
-2. Double-click to run instantly.
+### Option 1: Portable (No Install)
+1. Download `ISM+.exe` from the Releases section.
+2. Double-click to run immediately, no installation required.
 
-### Option 2 — Installer (Inno Setup)
-1. Download `ISM_Plus_Setup.exe` from the Releases Section.
-2. Run the installer — it handles everything automatically.
+### Option 2: Installer (Inno Setup)
+1. Download `ISM_Plus_Setup.exe` from the Releases section.
+2. Run the installer to complete setup automatically.
 
-### Option 3 — Microsoft Store
+### Option 3: Microsoft Store
 [![Microsoft Store](https://img.shields.io/badge/Microsoft%20Store-ISM%2B%20-green?logo=microsoftstore)](https://apps.microsoft.com/detail/9nqk8n6m1qz5)
 
 ---
 
 ## 🛡️ Administrative Privileges
 
-The Free edition of **ISM+** is designed to be incredibly lightweight and does not require administrative privileges for its core functionality. 
+The Free edition of **ISM+** requires no administrative privileges for its core monitoring functionality.
 
-For advanced system-level features, such as the **Real-Time App Bandwidth Tracker** (which uses Windows ETW architecture), you must upgrade to **ISM+ Pro**.
+Advanced system-level features, such as the **Real-Time App Bandwidth Tracker**, interface directly with the Windows Event Tracing (ETW) subsystem and require elevated permissions. These features are available exclusively in **ISM+ Pro**.
 
 ---
 
@@ -109,31 +109,30 @@ ISM+/
 
 ## 🌟 ISM+ Pro
 
-Want the **Floating Desktop Widget** and **Taskbar Overlay Speedometer**?
-
 **[Get ISM+ Pro on the Microsoft Store →](https://apps.microsoft.com/detail/9ncl3jrpkhtw)**
 
-ISM+ Pro unlocks the full potential of your network monitoring:
-- 🪟 **Floating Widget** — a customisable semi-transparent speed widget on your desktop
-- 📊 **Real-Time Graphs** — beautiful, smooth graphs tracking historical speed
-- 🔍 **Per-App Monitor** — track exactly which apps are consuming your bandwidth
-- ⏱️ **In-App Speed Test** — ping, download, and upload benchmarks
-- 📈 **Advanced Stats** — average speeds and monthly/yearly maximums
-- 🔄 **Taskbar Flip View** — tap the taskbar overlay to see total data used
+ISM+ Pro unlocks the full capability of the monitoring stack:
+
+- 🪟 **Floating Widget**: A customizable, semi-transparent desktop overlay for persistent speed readouts
+- 📊 **Real-Time Graphs**: Continuous throughput graphs with historical data retention
+- 🔍 **Per-App Monitor**: Process-level bandwidth attribution via Windows ETW instrumentation
+- ⏱️ **In-App Speed Test**: Integrated ping, download, and upload throughput benchmarking
+- 📈 **Advanced Stats**: Average speed computation alongside monthly and yearly peak tracking
+- 🔄 **Taskbar Flip View**: Toggle the taskbar overlay between live speed and cumulative data usage
 
 ---
 
 ## ☕ The Story Behind ISM+
 
-The idea for ISM+ was born out of sheer frustration. I searched the entire internet for a simple, native Windows app that could show me my real-time network speeds directly in the taskbar. What I found was a wasteland—existing apps were either completely non-functional, hidden behind ridiculous subscription paywalls.
+ISM+ was built to solve a straightforward problem: there was no reliable, native Windows application that could display real-time network speeds in the taskbar. The available options were either non-functional, locked behind subscription paywalls, or both.
 
-So, on **February 28, 2026**, I decided to build it myself.
+On **February 28, 2026**, I started building one from the ground up.
 
-It took me about 3 months of dedication to build this completely from scratch. It started with just a logo (which I redesigned three times before getting it right), writing lines of core C# telemetry code, debugging, making it perfectly stable across different Windows environments, and constantly sending fresh builds to my friends for rigorous testing. A massive amount of hard work went into making this feel like a seamless part of the Windows OS.
+Development took approximately three months: designing and iterating on the UI, writing the core C# network telemetry layer, stabilizing behavior across different Windows configurations, and running iterative builds through real-world testing with a group of friends. A significant portion of the engineering effort went into ensuring the app integrates cleanly with the Windows shell without introducing noticeable overhead.
 
-While there is a paid Pro version (which helps support the endless hours of development!), I intentionally designed the Free, open-source version to beautifully handle all the essential tasks most users need.
+The Pro version helps sustain continued development, but the Free edition is intentionally scoped to cover the core use cases most users require.
 
-Please shower your love and support for this app, star the repository, and share it with fellow Windows power users! ❤️
+If you find ISM+ useful, please star the repository and share it with fellow Windows power users. ❤️
 
 ---
 
